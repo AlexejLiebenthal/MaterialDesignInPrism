@@ -39,21 +39,25 @@
     </windows:MaterialDesignWindow.HeaderContent>
 
     <Window.Content>
-        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}">
-            <materialDesign:DrawerHost.LeftDrawerContent>
-                <TextBlock Width="250"
-                           TextWrapping="Wrap"
-                           Text="Some left drawer content here. Perhaps navigation options?"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Margin="10" />
-            </materialDesign:DrawerHost.LeftDrawerContent>
-            <Grid>
-                <materialDesign:Card Padding="32"
-                                     Margin="16">
-                    <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
-                </materialDesign:Card>
-            </Grid>
-        </materialDesign:DrawerHost>
+        <materialDesign:DialogHost SnackbarMessageQueue="{Binding ElementName=Snackbar, Path=MessageQueue}" CloseOnClickAway="True">
+            
+            <materialDesign:DialogHost.DialogContent>
+                <ContentControl x:Name="DialogContent" />
+            </materialDesign:DialogHost.DialogContent>
+            
+            <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}"
+                                       x:Name="DrawerHost">
+                
+                <materialDesign:DrawerHost.LeftDrawerContent>
+                    <ContentControl x:Name="DrawerContent" />
+                </materialDesign:DrawerHost.LeftDrawerContent>
+                
+                <Grid>
+                    <ContentControl prism:RegionManager.RegionName="MainContent" />
+                    <materialDesign:Snackbar x:Name="Snackbar" MessageQueue="{Binding MessageQueue}"/>
+                </Grid>
+                
+            </materialDesign:DrawerHost>
+        </materialDesign:DialogHost>
     </Window.Content>
 </Window>

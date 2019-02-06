@@ -58,7 +58,32 @@
     <Compile Include="Behaviors\DragWindowBehavior.cs" />
     <Compile Include="Behaviors\TemplateBindingBehavior.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="ModuleA\AModule.cs" />
+    <Compile Include="ModuleA\ViewModels\DialogViewModel.cs" />
+    <Compile Include="ModuleA\ViewModels\DrawerViewModel.cs" />
+    <Compile Include="ModuleA\ViewModels\MainContentViewModel.cs" />
+    <Compile Include="ModuleA\Views\DialogView.xaml.cs">
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleA\Views\DrawerView.xaml.cs">
+      <DependentUpon>DrawerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleA\Views\MainContentView.xaml.cs">
+      <DependentUpon>MainContentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MaterialDesignWindow.xaml.cs" />
+    <Page Include="ModuleA\Views\DialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModuleA\Views\DrawerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModuleA\Views\MainContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Shell.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
