@@ -1,13 +1,11 @@
-﻿using MaterialDesignInPrism.Windows;
-using Prism.Regions;
-using System.Windows;
+﻿using Prism.Regions;
 
 namespace MaterialDesignInPrism.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Shell : Window
+    public partial class Shell 
     {
         private readonly IRegionManager regionManager;
 
@@ -15,7 +13,6 @@ namespace MaterialDesignInPrism.Views
         {
             this.regionManager = regionManager ?? throw new System.ArgumentNullException(nameof(regionManager));
 
-            MaterialDesignWindow.RegisterCommands(this);
             InitializeComponent();
 
             InitializeDrawerRegion();

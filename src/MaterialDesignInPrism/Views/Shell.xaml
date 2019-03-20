@@ -1,63 +1,56 @@
-﻿<Window x:Class="MaterialDesignInPrism.Views.Shell"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:prism="http://prismlibrary.com/"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:windows="clr-namespace:MaterialDesignInPrism.Windows"
-        mc:Ignorable="d"
-        Height="450"
-        Width="800"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal"
-        TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
-        Style="{StaticResource MaterialDesignWindow}"
-        Title="{Binding Title}"
-        prism:ViewModelLocator.AutoWireViewModel="True">
+﻿<controls:MetroWindow x:Class="MaterialDesignInPrism.Views.Shell"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:prism="http://prismlibrary.com/"
+                      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      mc:Ignorable="d"
+                      Height="450"
+                      Width="800"
+                      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                      TextElement.FontWeight="Regular"
+                      TextElement.FontSize="13"
+                      TextOptions.TextFormattingMode="Ideal"
+                      TextOptions.TextRenderingMode="Auto"
+                      Background="{DynamicResource MaterialDesignPaper}"
+                      FontFamily="{DynamicResource MaterialDesignFont}"
+                      Title="{Binding Title}"
+                      TitlebarHeight="40"
+                      TitleCharacterCasing="Upper"
+                      TitleAlignment="Center"
+                      prism:ViewModelLocator.AutoWireViewModel="True">
 
-    <windows:MaterialDesignWindow.HeaderContent>
-        <Grid>
+    <controls:MetroWindow.LeftWindowCommands>
+        <controls:WindowCommands>
             <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}"
-                          HorizontalAlignment="Left"
-                          WindowChrome.IsHitTestVisibleInChrome="True"
-                          x:Name="MenuToggleButton" />
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-                <Image Source="{Binding Icon, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                       MaxHeight="32"
-                       VerticalAlignment="Center" />
-                <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                           VerticalAlignment="Center" />
-            </StackPanel>
-        </Grid>
-    </windows:MaterialDesignWindow.HeaderContent>
+                          x:Name="MenuToggleButton"
+                          Height="28" />
+        </controls:WindowCommands>
+    </controls:MetroWindow.LeftWindowCommands>
 
-    <Window.Content>
-        <materialDesign:DialogHost SnackbarMessageQueue="{Binding ElementName=Snackbar, Path=MessageQueue}" CloseOnClickAway="True">
-            
-            <materialDesign:DialogHost.DialogContent>
-                <ContentControl x:Name="DialogContent" />
-            </materialDesign:DialogHost.DialogContent>
-            
-            <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}"
-                                       x:Name="DrawerHost">
-                
-                <materialDesign:DrawerHost.LeftDrawerContent>
-                    <ContentControl x:Name="DrawerContent" />
-                </materialDesign:DrawerHost.LeftDrawerContent>
-                
-                <Grid>
-                    <ContentControl prism:RegionManager.RegionName="MainContent" />
-                    <materialDesign:Snackbar x:Name="Snackbar" MessageQueue="{Binding MessageQueue}"/>
-                </Grid>
-                
-            </materialDesign:DrawerHost>
-        </materialDesign:DialogHost>
-    </Window.Content>
-</Window>
+    <materialDesign:DialogHost SnackbarMessageQueue="{Binding ElementName=Snackbar, Path=MessageQueue}"
+                               CloseOnClickAway="True">
+
+        <materialDesign:DialogHost.DialogContent>
+            <ContentControl x:Name="DialogContent" />
+        </materialDesign:DialogHost.DialogContent>
+
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}"
+                                   x:Name="DrawerHost">
+
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <ContentControl x:Name="DrawerContent" />
+            </materialDesign:DrawerHost.LeftDrawerContent>
+
+            <Grid>
+                <ContentControl prism:RegionManager.RegionName="MainContent" />
+                <materialDesign:Snackbar x:Name="Snackbar"
+                                         MessageQueue="{Binding MessageQueue}" />
+            </Grid>
+
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
+
+</controls:MetroWindow>
