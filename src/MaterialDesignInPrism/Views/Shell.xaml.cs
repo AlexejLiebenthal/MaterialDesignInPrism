@@ -16,18 +16,12 @@ namespace MaterialDesignInPrism.Views
             InitializeComponent();
 
             InitializeDrawerRegion();
-            InitializeDialogRegion();
         }
 
         private void InitializeDrawerRegion()
         {
             RegionManager.SetRegionName(DrawerContent, "DrawerContent");
             RegionManager.SetRegionManager(DrawerContent, regionManager);
-        }
-        private void InitializeDialogRegion()
-        {
-            RegionManager.SetRegionName(DialogContent, "DialogContent");
-            RegionManager.SetRegionManager(DialogContent, regionManager);
         }
     }
 }

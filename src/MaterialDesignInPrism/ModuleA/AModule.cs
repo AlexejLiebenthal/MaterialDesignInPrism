@@ -1,4 +1,5 @@
-﻿using MaterialDesignInPrism.ModuleA.Views;
+﻿using MaterialDesignInPrism.ModuleA.ViewModels;
+using MaterialDesignInPrism.ModuleA.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -19,9 +20,11 @@ namespace MaterialDesignInPrism.ModuleA
         {
             regionManager.RegisterViewWithRegion("MainContent", typeof(MainContentView));
             regionManager.RegisterViewWithRegion("DrawerContent", typeof(DrawerView));
-            regionManager.RegisterViewWithRegion("DialogContent", typeof(DialogView));
         }
 
-        public void RegisterTypes(IContainerRegistry containerRegistry) { }
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterDialog<DialogView, DialogViewModel>();
+        }
     }
 }

@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Services\MaterialDialogService.cs" />
     <Compile Include="ModuleA\AModule.cs" />
     <Compile Include="ModuleA\ViewModels\DialogViewModel.cs" />
     <Compile Include="ModuleA\ViewModels\DrawerViewModel.cs" />
@@ -135,7 +136,7 @@
       <Version>0.0.12</Version>
     </PackageReference>
     <PackageReference Include="Prism.DryIoc">
-      <Version>7.1.0.431</Version>
+      <Version>7.2.0.1038-pre</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
